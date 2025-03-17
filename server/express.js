@@ -5,8 +5,8 @@ import compress from 'compression'
 import cors from 'cors'
 import helmet from 'helmet'
 import Template from './../template.js'
-import userRouter from './routes/user.routes.js'
-import contactRouter from './routes/contact.routes.js'
+import userRouter from './routes/userRoutes.js'
+//import contactRouter from './routes/customerRoutes.js'
 
 const app = express()
 app.get('/', (req, res) => {
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', userRouter, contactRouter)
+app.use('/', userRouter)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())

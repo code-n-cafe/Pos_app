@@ -8,11 +8,11 @@ roomRouter.route('/api/room')
     .post(roomController.createRoom)
     .delete(roomController.removeRoomList)
 
-roomRouter.route('/api/users/:roomId')
-    .get(roomController.roomByID)
+roomRouter.route('/api/room/:roomId')
+    .get((req, res) => res.json(req.profile))
     .put(roomController.updateRoom)
     .delete(roomController.removeRoom)
 
-roomRouter.param('roomID', roomController.roomByID)
+roomRouter.param('roomId', roomController.roomByID)
 
 export default roomRouter

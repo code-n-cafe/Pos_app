@@ -7,12 +7,9 @@ const BeverageSchema = new mongoose.Schema({
         required: 'Name is required'
     },
     type: {
-        type: Boolean,
-        required: 'Alcohol information is required',
-        enum: [true, false],
-        default: false,
-        get: v => v ? 'alcohol' : 'non-alcohol',
-        set: v => v === 'alcohol'
+        type: String,
+        enum: ['alcohol', 'non-alcohol'],
+        default: 'non-alcohol'
     },
     price: {
         type: Number,
@@ -21,4 +18,4 @@ const BeverageSchema = new mongoose.Schema({
     }
 });
 
-export default mongoose.model('Beverage', BeverageSchema)
+export default mongoose.model('Drink', BeverageSchema)

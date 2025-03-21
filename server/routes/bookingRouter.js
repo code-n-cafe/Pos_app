@@ -8,8 +8,8 @@ bookingRouter.route('/api/booking')
     .post(bookingController.createTicket)
     .delete(bookingController.removeAllBooking)
 
-bookingRouter.route('/api/users/:bookingId')
-    .get(bookingController.ticketByID)
+bookingRouter.route('/api/booking/:bookingId')
+    .get((req, res) => res.json(req.profile))   
     .put(bookingController.updateTicket)
     .delete(bookingController.removeTicket)
 

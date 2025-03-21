@@ -8,8 +8,8 @@ foodRouter.route('/api/food')
     .post(foodController.createFood)
     .delete(foodController.removeFoodList)
 
-foodRouter.route('/api/users/:foodId')
-    .get(foodController.foodByID)
+foodRouter.route('/api/food/:foodId')
+    .get((req, res) => res.json(req.profile))
     .put(foodController.updateFood)
     .delete(foodController.removeFood)
 

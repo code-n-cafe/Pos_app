@@ -17,7 +17,7 @@ const createDrink = async (req, res) => {
 
 const listDrink = async (req, res) => {
     try {
-        let drink = await Drink.find().select('name email updated created');
+        let drink = await Drink.find();
         res.json(drink);
     } catch (err) {
         return res.status(400).json({
@@ -28,33 +28,38 @@ const listDrink = async (req, res) => {
 
 const drinkByID = async (req, res, next, id) => {
     try {
-            let drink = await Drink.findById(id) 
-            if (!drink)
-                return res.status('400').json({ 
-                    error: "Drinkn not found"
-                })
-            req.profile = room
-            next()
+            let drink = await Drink.findById(id);
+            if (!drink) {
+                return res.status(404).json({ 
+                    error: "Drink not found"
+                });
+            }
+            req.profile = drink; // Ensure req.profile is set
+            next(); // Proceed to the next middleware or route handler
         } catch (err) {
-            return res.status('400').json({ 
-                error: "Could not retrieve room"
-            }) 
+            return res.status(400).json({ 
+                error: "Could not retrieve drink"
+            });
         }
-    }
+    };
     
     const updateDrink = async (req, res) => { 
         try {
-            let drink = req.profile
-            drink = extend(user, req.body) 
-            drink.updated = Date.now() 
-            await drink.save()
-            res.json(drink) 
+            const drink = await Drink.findByIdAndUpdate(
+            req.params.drinkId,
+            req.body,
+            { new: true, runValidators: true }
+            );
+            if (!drink) {
+                return res.status(404).json({ error: "Beverage not found" });
+            }
+    
+            res.json(drink); // Return the updated beverage
         } catch (err) {
-            return res.status(400).json({
-                error: errorHandler.getErrorMessage(err) 
-            })
-        } 
-    }
+            console.error('Error updating beverage:', err); // Log the error for debugging
+            return res.status(400).json({ error: "Could not update beverage" });
+        }
+    };
     
     const removeDrink = async (req, res) => { 
         try {

@@ -8,10 +8,10 @@ customerRouter.route('/api/customers')
     .post(customerController.createCustomer)
     .delete(customerController.removeCustomerList)
 
-customerRouter.route('/api/users/:customerId')
-    .get(customerController.custByID)
-    .put(customerController.updateCustomer)
-    .delete(customerController.removeCustomer)
+customerRouter.route('/api/customers/:customerId') // Corrected route
+    .get((req, res) => res.json(req.profile)) // Respond with the customer profile
+    .put(customerController.updateCustomer) // Update customer
+    .delete(customerController.removeCustomer); // Delete customer
 
 customerRouter.param('customerId', customerController.custByID)
 

@@ -8,8 +8,8 @@ drinkRouter.route('/api/drink')
     .post(drinkController.createDrink)
     .delete(drinkController.removeDrinkList)
 
-drinkRouter.route('/api/users/:drinkId')
-    .get(drinkController.drinkByID)
+drinkRouter.route('/api/drink/:drinkId')
+    .get((req, res) => res.json(req.profile))
     .put(drinkController.updateDrink)
     .delete(drinkController.removeDrink)
 

@@ -6,7 +6,7 @@ const createFood = async (req, res) => {
   try {
     await food.save();
     return res.status(200).json({
-      message: 'Successfully added' + Food.name + '!',
+      message: 'Successfully added dish to the menu!',
     });
   } catch (err) {
     return res.status(400).json({
@@ -17,7 +17,7 @@ const createFood = async (req, res) => {
 
 const listFood = async (req, res) => {
     try {
-        let food = await Food.find().select('name email updated created');
+        let food = await Food.find();
         res.json(food);
     } catch (err) {
         return res.status(400).json({
@@ -28,33 +28,39 @@ const listFood = async (req, res) => {
 
 const foodByID = async (req, res, next, id) => {
     try {
-            let food = await Food.findById(id) 
-            if (!food)
-                return res.status('404').json({ 
-                    error: "Dish not found"
-                })
-            req.profile = room
-            next()
-        } catch (err) {
-            return res.status('400').json({ 
-                error: "Could not retrieve dish"
-            }) 
+        let food = await Food.findById(id);
+        if (!food) {
+            return res.status(404).json({ 
+                error: "Dish not found"
+            });
         }
+        req.profile = food; 
+        next(); // Proceed to the next middleware or route handler
+    } catch (err) {
+        return res.status(400).json({ 
+            error: "Could not retrieve dish"
+        });
     }
+};
     
     const updateFood = async (req, res) => { 
         try {
-            let food = req.profile
-            food = extend(user, req.body) 
-            food.updated = Date.now() 
-            await food.save()
-            res.json(food) 
+            const food = await Food.findByIdAndUpdate(
+            req.params.foodId,
+            req.body,
+            { new: true, runValidators: true }
+            );
+            if (!food) {
+                return res.status(404).json({ error: "Dish not found" });
+            }
+    
+            res.json(food); // Return the updated food
         } catch (err) {
-            return res.status(400).json({
-                error: errorHandler.getErrorMessage(err) 
-            })
-        } 
-    }
+            console.error('Error updating dish information:', err); // Log the error for debugging
+            return res.status(400).json({ error: "Could not update dish" });
+        }
+    };
+    
     
     const removeFood = async (req, res) => { 
         try {

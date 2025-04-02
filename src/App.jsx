@@ -3,10 +3,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar  from './navbar';
 import Menu  from './Menu';
 import Footer from './FFooter';
-//import Projects from './Projects';
+import LogIn from './LogIn';
 import Bookings from './Bookings';
  //import { ThemeProvider } from '@material-ui/styles';
  import MainRouter from '../MainRouter';
+ import SignUp  from './SignUp';
  import Contact from './Contact';
 import Giftcard from './Giftcard';
  //import theme from '../theme';
@@ -19,6 +20,7 @@ const App = () => {
  <Router>
 <Navbar/>
  <MainRouter />
+
 <Footer/>
  </Router>
   

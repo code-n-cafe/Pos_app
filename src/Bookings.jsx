@@ -35,6 +35,7 @@ export default function Bookings() {
 
     return (
         <div className="container">
+           
             <h2>Bookings & Group Reservations </h2>
             <form onSubmit={handleSubmit}>
                 <div>

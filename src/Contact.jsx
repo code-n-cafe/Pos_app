@@ -13,7 +13,7 @@ export default function Contact() {
         <label htmlFor="phone">Phone </label><br /><input type="number" name="phone" id="" /> <br />
         <label for="message">Message:</label><br />
   <textarea id="message" name="message" rows="6" cols="50" placeholder="Enter your message here..."></textarea> <br />
-  <a href="/" ><button>Send</button></a> 
+  <a href="" ><button>Send</button></a> 
   
  
         </div>

@@ -2,16 +2,26 @@ import Ticket from '../models/bookingModel.js';
 import errorHandler from './errorController.js';
 
 const createTicket = async (req, res) => {
-  const ticket = new Ticket(req.body);
-  try {
-    await ticket.save();
-    return res.status(200).json({
-      message: 'Successfully created booking ticket!',
-    });
-  } catch (err) {
-    return res.status(400).json({
-      error: errorHandler.getErrorMessage(err),
-    });
+    console.log(req.body);
+    const ticket = new Ticket(req.body);
+    try {
+      const { name, check_in, check_out, email, phone, group, numberOfPeople } = req.body;
+      const finalData = {
+        name,
+        check_in,
+        check_out,
+        email,
+        phone,
+        group,
+        numberOfPeople: group ? numberOfPeople : 1,
+    };
+      const newTicket = new Ticket(finalData);
+      await newTicket.save();
+  
+      res.status(201).json({ message: 'Ticket created successfully!', ticket : newTicket });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Failed to create ticket' });
   }
 }
 

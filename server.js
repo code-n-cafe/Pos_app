@@ -2,15 +2,15 @@ import config from './config/config.js'
 import app from './server/express.js'
 import mongoose from 'mongoose' 
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri, { useNewUrlParser: true,
-//useCreateIndex: true, 
-useUnifiedTopology: true } )
-
-// Connect to MongoDB
+mongoose.connect(config.mongoUri)
 .then(() => {
     console.log("Connected to the database!");
     })
-   
+.catch(err => {
+    console.error("Database connection error:", err);
+    process.exit(1);
+    }
+)
  mongoose.connection.on('error', () => {
  throw new Error(`unable to connect to database: ${config.mongoUri}`) 
  })
@@ -23,4 +23,3 @@ useUnifiedTopology: true } )
  }
  console.info('Server started on port %s.', config.port) 
  })
- 

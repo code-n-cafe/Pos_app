@@ -1,0 +1,128 @@
+@import "../vars.css";
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+
+.navbar{
+    background-color:  rgba(238, 160, 70, 0.452);
+    color: rgba(198, 93, 17, 0.518);
+    display: flex;
+    justify-content: space-between;
+    height: 65px;
+    align-items: center;
+    position: relative;
+    padding-top: 10px;
+    width: 100%;
+  }
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.title {
+  font-family: "Limelight", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(199, 123, 9);
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.title:hover {
+  color: rgba(218, 141, 26, 0.473);
+}
+
+.menu {
+  display: flex;
+  align-items: center; /* Vertically align all items */
+  justify-content: flex-end; /* Align items to the right */
+  gap: 20px; /* Add spacing between items */
+  margin-right: 20px;
+}
+
+.menuItems {
+  display: flex;
+  gap: 11px;
+  list-style: none;
+  font-family: "Limelight";
+  font-size: 15px;
+  font-style: italic;
+  color: rgb(199, 123, 9);
+  align-items: center; /* Ensure vertical alignment */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.menuItems a {
+  background-color: rgba(223, 215, 212, 0.747);
+  color: var(--color-text);
+  text-decoration: none;
+  border: 2px solid rgba(198, 92, 17, 1);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.menuItems a:hover {
+  color: black;
+}
+
+.menuBtn {
+  height: 50px;
+  position: absolute;
+  right: 0;
+}
+
+@media screen and (max-width: 830px) {
+
+.title {
+  margin-left: 10px;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+  .menu {
+      position: absolute;
+      right: 0;
+      margin-right: 10%;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 11px;
+      z-index: 3;
+      top: 100%;
+  }
+
+  .menuBtn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menuItems {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 13px;
+      border-radius: 10px;
+      background:  rgba(198, 92, 17, 0.952);
+      background: linear-gradient(0deg, rgba(29, 91, 131) 0%,  rgba(198, 92, 17, 0.842) 100%);
+      padding: 24px 33px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .menuOpen {
+      display: flex;
+      z-index: 1;
+  }
+}
+
+@media screen and (min-width: 831px) {
+  .menuBtn {
+      display: none;
+  }
+}

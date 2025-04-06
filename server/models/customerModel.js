@@ -2,17 +2,24 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const CustomerSchema = new mongoose.Schema({
-    name: {
+    firstName: {
         type: String,
         trim: true,
-        required: 'Name is required'
+        required: 'First name is required'
     },
-    password: {
+    lastName: {
         type: String,
-        required: 'Password is required',
-        set: function(password) {
-            const salt = bcrypt.genSaltSync(10);
-            return bcrypt.hashSync(password, salt);
+        trim: true,
+        required: 'Last name is required'
+    },
+    dob: {
+        type: Date,
+        required: 'Date of birth is required',
+        validate: {
+            validator: function(value) {
+                return value <= new Date();
+            },
+            message: 'Date of birth cannot be in the future'
         }
     },
     email: {
@@ -22,32 +29,12 @@ const CustomerSchema = new mongoose.Schema({
         match: [/.+\@.+\..+/, 'Please fill a valid email address'],
         required: 'Email is required'
     },
-    phoneNumber: {
+    password: {
         type: String,
-        trim: true,
-        required: 'Phone number is required',
-        unique: 'Phone number already exists',
-    },
-    group: {
-        type: Boolean,
-        required: 'Group information is required',
-        default: false
-    },
-    numberOfPeople: {
-        type: Number,
-        required: function() {
-            return this.group === true;
-        },
-        min: [2, 'Number of people must be at least 2'],
-        max: [5, 'Maximum capacity is 5'],
-        validate: {
-            validator: function(value) {
-                return !this.group || (value >= 2 && value <= 5);
-            },
-            message: 'Number of people is required and must be between 2 and 5 when group is true'
+        required: 'Password is required',
         }
     }
-});
+);
 
 CustomerSchema.pre('save', async function (next) {
     if (this.isModified('password')) {

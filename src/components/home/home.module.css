@@ -1,0 +1,80 @@
+@import "../vars.css";
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Passion+One:wght@400;700;900&display=swap');
+
+/* Container for the background */
+.backgroundContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Static blurry background */
+.backgroundContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../assets/bg/cafepictureA.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Place behind the content */
+}
+
+/* Opaque text box */
+.textBox {
+    background-color: rgba(255, 255, 255, 0.8); /* White with opacity */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 800px;
+}
+
+.textBox h1 {
+    font-family: "Passion One", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.textBox h2 {
+    font-size: 4rem;
+    font-family: "Passion One", sans-serif;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.textBox p {
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.signUpButton {
+    margin-top: 0px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: "Passion One", sans-serif;
+    font-weight: 100;
+    color: #fff;
+    background-color: #ff7f50; /* Coral color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signUpButton:hover {
+    background-color: #ff4500; /* Darker coral on hover */
+}

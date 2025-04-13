@@ -1,0 +1,301 @@
+ /* file name: CODE & COFFEE Group Assignment
+ Name: Duruh Christian -301369076
+ Name: Peter
+ Name: Rosemary 
+ Name: 
+ */
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure root div spans the full screen */
+  #root {
+    min-height: 100vh;
+    display: contents;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Example of responsive container */
+  .container {
+    max-width: 1200px; /* max-width for large screens */
+    width: 100%;
+    padding: 0 20px; /* Add some padding to the container */
+    box-sizing: border-box;
+  }
+
+  /* Example of responsive design for different screen sizes */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px; /* Smaller padding for smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* You can further adjust styles for mobile screens */
+    body {
+      font-size: 14px;
+    }
+  }
+
+
+ @media (max-width: 1408px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+p{
+  
+  font-family:   Verdana, Geneva, Tahoma, sans-serif ;
+  font-size: 17px;
+}
+a{
+  text-decoration: none;
+  
+}
+a :hover{
+  color: wheat;
+}
+/*NAVBAR SECTION*/
+.nav{
+  background-color:  rgba(198, 93, 17, 0.518);
+  color: rgba(198, 93, 17, 0.518);
+  display: inline-flex;
+  justify-content: space-between;
+  height: 65px;
+  align-items: center;
+  gap:  0rem;
+  padding: 0 ;
+  top: 0; 
+  width: 100%; font-size: 16px;
+}
+.title{
+  margin-right: 500px;
+}
+.nav a :hover{
+  color: rgba(77, 209, 209, 0.854);
+}
+.nav a{
+  color: rgb(9, 8, 8);
+  list-style-type: none; 
+}
+.nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin-right: 30px;
+  display: flex;
+  gap: 1rem; 
+}
+
+.contactinfo{
+  display: flex;
+}
+
+
+                              /* FOOTER SECTION*/
+.FooterDiv{
+  background-color: #434f57;
+  display: inline-flex;
+  color: rgb(219, 217, 217);
+  font-size: 16px;
+  width: 100%;
+  max-width: 1690px;
+  height: 200px;
+  padding-top: 20px;
+}
+.FooterDiv a{
+  color: rgb(232, 218, 218) ;
+  
+}
+.FooterDiv li {
+  list-style-type: none;
+  color: white;
+  padding-top: 5px;
+}
+.lsdiv li{
+  list-style-type: none;
+  
+}
+.FooterDiv  li:hover{
+  color: black;
+}
+.fdiv{
+  margin-left:99px ;
+}
+.middiv{
+  margin-left:99px ;
+}
+.picdiv{
+  display: flex;
+ margin-left: 190px;
+}
+                                    /*PROJECT SECTION */
+.Projectdiv{
+  display: flex;
+ 
+}
+.div1project{
+  margin-right: 30px;
+  color: rgb(43, 43, 16);
+  border: 1px solid rgb(178, 167, 167);
+  box-shadow: 5px 5px 10px rgb(44, 37, 37);
+  height: 300px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 15px;
+  width: 100%; /* Change to 100% for responsiveness */
+  max-width: 400px;
+
+}
+
+                                                  /*menu DIV*/
+.Menunav{
+  float: left;
+ position: static;
+  border: 2px  rgb(178, 167, 167);
+  box-shadow: 5px 5px 9px rgb(205, 201, 201);
+  width: auto;
+  padding: 10px;
+  background-color: rgb(37, 46, 79); 
+  border-radius: 15px;
+ 
+}
+.Menunav a{
+  
+  color: rgb(220, 71, 71);
+  list-style-type: none; 
+  text-decoration-style: none;
+  
+
+}
+.Menunav ul{
+  list-style-type: none;
+}
+.Menunav h4{
+  color: rgb(148, 67, 67);
+}
+
+.row1a{
+  width: 50px; 
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: black;
+    width: 120px;
+    margin-left: 70px;
+    
+}
+.row1{
+  margin-left: 180px;
+}
+.allmenu{
+  display: inline-flex;
+  width: 600px;
+}
+.allmenu p{
+  margin-left: 80px;
+}
+.Menunav a:hover{
+  color: white;
+}
+/* GiftCards*/
+.Birthday{
+  display: inline-flex;
+  margin-left: 10px;
+}
+.HB{
+  margin-left: 20px;
+  border-radius: 15px;
+}
+.Allgiftcards{
+  background-color: rgb(247, 247, 253);
+}
+
+                          /*Bookings */
+.container{
+  background: white;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; 
+    
+    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/*.radio-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.response-message {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+}
+.bookingBody{
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+#Hhead{
+  color: rgb(97, 109, 216);
+  padding: 10px;
+  text-align: center;
+}
+.SignUpInfo{
+  color: rgb(51, 48, 48);
+  width: 400px;
+  margin-left: 600px;
+}
+.SignBut :hover{
+  color: rgb(15, 15, 71);
+  padding-top: 5px;
+}

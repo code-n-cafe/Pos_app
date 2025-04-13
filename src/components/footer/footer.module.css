@@ -1,0 +1,53 @@
+@import '../vars.css';
+
+.footerContainer {
+    display: flex;
+    justify-content: space-around; /* Spread sections evenly */
+    align-items: flex-start; /* Align sections to the top */
+    padding: 2rem;
+    background-color: rgba(238, 160, 70, 0.452);
+    flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
+    gap: 1rem; /* Add spacing between sections */
+}
+
+.section {
+    flex: 1; /* Allow sections to grow/shrink equally */
+    max-width: 250px; /* Optional: Limit the width of each section */
+    text-align: left;
+}
+
+.section h4 {
+    font-family: "Limelight";
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.section ul {
+    list-style: none;
+    
+}
+
+.section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.section ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.section ul li a:hover {
+    color: var(--color-primary-hover); /* Add hover effect */
+}
+
+.section p {
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.section img {
+    margin-left: 5px;
+    vertical-align: middle;
+}

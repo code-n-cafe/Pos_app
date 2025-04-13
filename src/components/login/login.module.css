@@ -1,0 +1,71 @@
+.LogInInfo {
+    display: flex;
+    justify-content: center; /* Horizontally center the form */
+    align-items: center; /* Vertically center the form */
+    height: 100vh; /* Full viewport height */
+    background-color: #fdf3e3; /* Light background color for contrast */
+}
+
+.SignUpInfo {
+    background-color: #ffffff; /* White background for the form */
+    padding: 30px 40px; /* Add padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Limit the form width */
+    text-align: center; /* Center-align text */
+    font-family: 'Arial', sans-serif;
+}
+
+.SignUpInfo h1 {
+    font-size: 24px;
+    color: #c65c11; /* Match the theme color */
+    margin-bottom: 20px;
+}
+
+.SignUpInfo label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.SignUpInfo input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.SignUpInfo button {
+    background-color: #c65c11; /* Match the theme color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.SignUpInfo button:hover {
+    background-color: #a04a0d; /* Darker shade on hover */
+}
+
+.SignUpInfo p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.SignUpInfo p button {
+    background: none;
+    border: none;
+    color: #c65c11;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}

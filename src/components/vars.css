@@ -1,0 +1,25 @@
+:root {
+    /* Default Colors */
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --border-color: #ddd;
+
+    /* Font Settings */
+    --font-family: 'Arial', sans-serif;
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+    --font-size-large: 20px;
+
+    /* Spacing */
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+
+    /* Border Radius */
+    --border-radius: 4px;
+
+    /* Shadows */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

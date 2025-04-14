@@ -90,89 +90,115 @@ export default function Bookings() {
         }
     };
     return (
-        <div className={styles.bookingForm}>
-            <h1 className={styles.heading}>Book Your Reservation</h1>
-            <form className={styles.form} onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                />
+        <div className={styles.bookingContainer}>
+            <div className={styles.bookingCard}>
+                <h1 className={styles.heading}>Book Your Reservation</h1>
+                <form className={styles.form} onSubmit={handleSubmit}>
+                    <div className={styles.formGrid}>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="name">Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                                className={styles.inputField}
+                            />
+                        </div>
 
-                <label htmlFor="check_in">Check-in Date</label>
-                <input
-                    type="date"
-                    name="check_in"
-                    value={formData.check_in}
-                    onChange={handleChange}
-                    required
-                />
+                        <div className={styles.formGroup}>
+                            <label htmlFor="check_in">Check-in Date</label>
+                            <input
+                                type="date"
+                                name="check_in"
+                                value={formData.check_in}
+                                onChange={handleChange}
+                                required
+                                className={styles.inputField}
+                            />
+                        </div>
 
-                <label htmlFor="check_out">Check-out Date</label>
-                <input
-                    type="date"
-                    name="check_out"
-                    value={formData.check_out}
-                    onChange={handleChange}
-                    required
-                />
+                        <div className={styles.formGroup}>
+                            <label htmlFor="check_out">Check-out Date</label>
+                            <input
+                                type="date"
+                                name="check_out"
+                                value={formData.check_out}
+                                onChange={handleChange}
+                                required
+                                className={styles.inputField}
+                            />
+                        </div>
 
-                <label htmlFor="email">Email</label>
-                <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
+                        <div className={styles.formGroup}>
+                            <label htmlFor="email">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                className={styles.inputField}
+                            />
+                        </div>
 
-                <label htmlFor="phone">Phone</label>
-                <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    pattern="[0-9]{10}"
-                    required
-                />
+                        <div className={styles.formGroup}>
+                            <label htmlFor="phone">Phone</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                pattern="[0-9]{10}"
+                                required
+                                className={styles.inputField}
+                            />
+                        </div>
 
-                <label>
-                    <input
-                        type="checkbox"
-                        name="group"
-                        checked={formData.group}
-                        onChange={handleChange}
-                    />
-                    Group Booking
-                </label>
+                        <div className={styles.checkboxGroup}>
+                            <label className={styles.checkboxLabel}>
+                                <input
+                                    type="checkbox"
+                                    name="group"
+                                    checked={formData.group}
+                                    onChange={handleChange}
+                                    className={styles.checkboxInput}
+                                />
+                                <span className={styles.customCheckbox}></span>
+                                Group Booking
+                            </label>
+                        </div>
 
-                {formData.group && (
-                    <div>
-                        <label htmlFor="numberOfPeople">Number of People</label>
-                        <select
-                            name="numberOfPeople"
-                            value={formData.numberOfPeople}
-                            onChange={handleChange}
-                            required={formData.group}
-                        >
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                        {formData.group && (
+                            <div className={styles.formGroup}>
+                                <label htmlFor="numberOfPeople">Number of People</label>
+                                <select
+                                    name="numberOfPeople"
+                                    value={formData.numberOfPeople}
+                                    onChange={handleChange}
+                                    required={formData.group}
+                                    className={styles.selectField}
+                                >
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        )}
                     </div>
-                )}
 
-                <button type="submit" disabled={loading}>
-                    {loading ? "Submitting..." : "Submit"}
-                </button>
-                <p> Already had a reservation with us? Check you booking  
-                    <a href="/Reservation"> here</a>
-                </p>
-            </form>
+                    <button type="submit" className={styles.submitButton} disabled={loading}>
+                        {loading ? "Submitting..." : "Book Now"}
+                    </button>
+                    
+                    <p className={styles.footerText}>
+                        Already have a reservation? 
+                        <a href="/Reservation" className={styles.link}>Check your booking here</a>
+                    </p>
+                </form>
+            </div>
         </div>
     );
 }

@@ -1,45 +1,168 @@
-@import "../vars.css";
-
-.booking-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* booking.module.css (updated) */
+.bookingContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5e6d3 0%, #e2d1c3 100%);
+    padding: 2rem;
 }
 
-.booking-form h1 {
+.bookingCard {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 2.5rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.heading {
     text-align: center;
-    margin-bottom: 20px;
+    color: #2d1a12;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
 }
 
-.booking-form label {
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #5c3d2e;
+    font-weight: 500;
 }
 
-.booking-form input,
-.booking-form select {
+.inputField {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    padding: 0.8rem;
+    border: 2px solid #e0d1c3;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.inputField:focus {
+    border-color: #8b5e3c;
+    box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.1);
+    outline: none;
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    color: #5c3d2e;
+    height: 100%;
+    padding-bottom: 5px; /* Align with phone input */
+}
+
+
+.customCheckbox {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #8b5e3c;
     border-radius: 4px;
+    margin-right: 0.8rem;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.booking-form button {
+.checkboxInput:checked + .customCheckbox {
+    background-color: #8b5e3c;
+}
+
+.checkboxInput:checked + .customCheckbox::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.selectField {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 0.8rem;
+    border: 2px solid #e0d1c3;
+    border-radius: 8px;
+    background: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235c3d2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2rem;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 1rem;
+    background: #8b5e3c;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.booking-form button:hover {
-    background-color: #0056b3;
+.submitButton:hover:not(:disabled) {
+    background: #6d472e;
+    transform: translateY(-1px);
+}
+
+.submitButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.footerText {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #5c3d2e;
+}
+
+.link {
+    color: #8b5e3c;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bookingCard {
+        padding: 1.5rem;
+    }
+    
+    .heading {
+        font-size: 1.8rem;
+    }
 }

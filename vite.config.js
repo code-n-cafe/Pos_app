@@ -6,6 +6,17 @@ export default defineConfig({
         include: ['react/jsx-runtime']
       },
     plugins: [react()],
+    root: './',
+  publicDir: 'public',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: './index.html'
+      }
+    }
+  },
     server: {
         proxy: {
             '/api': {

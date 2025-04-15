@@ -1,3 +1,5 @@
+import { getImgURL } from "../../util";
+
 export default function Contact() {
      return (
      <>
@@ -17,7 +19,7 @@ export default function Contact() {
   
  
         </div>
-        <div className="picdiv"> <img src="customerS.webp" alt="Not Found"   height={400}/></div>
+        <div className="picdiv"> <img src={getImgURL("callpicture.jpg")} alt="Not Found"   height={400}/></div>
 </div>
  
      </div>

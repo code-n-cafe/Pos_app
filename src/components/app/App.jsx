@@ -17,12 +17,6 @@ const App = () => {
         <Router>
         <Navbar/>
         <MainRouter/>
-        <Menu/>
-        <LogIn/>
-        <SignUp/>
-        <Bookings/>
-        <Contact/>
-        <Giftcard/>
         <Footer/>
         </Router>
     </AuthProvider>

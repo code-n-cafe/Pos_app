@@ -29,10 +29,10 @@ export const Navbar = () => {
             <a className={styles.title} href="/">CODES AND COFFEE CAFE</a>
             <div className={styles.menu}>
                 <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}>
-                    <li><a href="/Services">Book Now!</a></li>
-                    <li><a href="/About">Our Menus</a></li>
-                    <li><a href="/Projects">Gift Cards</a></li>
-                    <li><a href="/Contact">Contact Us</a></li>
+                    <li><a href="/bookings">Book Now!</a></li>
+                    <li><a href="/menu">Our Menus</a></li>
+                    <li><a href="/giftcard">Gift Cards</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                     <li>
                         {isAuthenticated ? (
                             <>

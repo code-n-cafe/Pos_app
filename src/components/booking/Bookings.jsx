@@ -163,9 +163,8 @@ export default function Bookings() {
                                     name="group"
                                     checked={formData.group}
                                     onChange={handleChange}
-                                    className={styles.checkboxInput}
+                                    className={styles.customCheckbox}
                                 />
-                                <span className={styles.customCheckbox}></span>
                                 Group Booking
                             </label>
                         </div>

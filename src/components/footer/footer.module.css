@@ -1,53 +1,183 @@
+/*
 @import '../vars.css';
 
 .footerContainer {
-    display: flex;
-    justify-content: space-around; /* Spread sections evenly */
-    align-items: flex-start; /* Align sections to the top */
-    padding: 2rem;
-    background-color: rgba(238, 160, 70, 0.452);
-    flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
-    gap: 1rem; /* Add spacing between sections */
+  width: 100%;
+  background-color: rgba(238, 160, 70, 0.452);
+}
+
+.footerInfo {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-self: center;
 }
 
 .section {
-    flex: 1; /* Allow sections to grow/shrink equally */
-    max-width: 250px; /* Optional: Limit the width of each section */
-    text-align: left;
+
 }
 
-.section h4 {
-    font-family: "Limelight";
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--color-primary);
+summary {
+    display: block;
+    cursor: pointer;
+}
+*/
+
+.footerContainer {
+  width: 100%;
+  margin-top: 32px;
+
+  /* Footer surface */
+  background: var(--primary);
+  color: var(--background);
+
+  /* Visual separation from content */
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+/* Inner wrapper to align with Menu's max-width */
+.footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Info grid: About/Careers/Networking */
+.footerInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Details styling */
+.section {
+  border-radius: 12px;
+}
+
+/* Scoped summary styling (important: do NOT style global summary) */
+.section summary {
+  list-style: none;
+  cursor: pointer;
+
+  font-weight: 700;
+  color: var(--background);
+  opacity: 0.95;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  /* subtle interactive surface */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+/* Remove default marker in chromium */
+.section summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hover */
+.section summary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Content list */
 .section ul {
-    list-style: none;
-    
+  margin: 10px 0 0 0;
+  padding: 0 6px 10px 6px;
+  list-style: none;
 }
 
-.section ul li {
-    margin-bottom: 0.5rem;
+.section li {
+  margin: 6px 0;
 }
 
-.section ul li a {
-    text-decoration: none;
-    color: var(--color-text);
-    transition: color 0.3s ease;
+.section a {
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 8px;
+
+  text-decoration: none;
+  color: rgba(247, 243, 238, 0.88); /* matches --background vibe */
+  transition: color 140ms ease, background 140ms ease;
 }
 
-.section ul li a:hover {
-    color: var(--color-primary-hover); /* Add hover effect */
+.section a:hover {
+  color: var(--background);
+  background: rgba(197, 139, 66, 0.18); /* accent tint */
 }
 
-.section p {
-    font-size: 0.9rem;
-    color: var(--color-text);
+/* Social column */
+.footerSocial {
+  justify-self: end;
+  min-width: 220px;
+  align-self: center;
 }
 
-.section img {
-    margin-left: 5px;
-    vertical-align: middle;
+.footerSocial ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  gap: 12px;
+}
+
+.footerSocial li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icon link */
+.footerSocial a[href] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+
+  color: var(--background);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.footerSocial a[href]:hover {
+  transform: translateY(-2px);
+  background: rgba(197, 139, 66, 0.22);
+  border-color: rgba(197, 139, 66, 0.35);
+}
+
+/* Social label text (use <span> in JSX) */
+.footerSocial span {
+  color: rgba(247, 243, 238, 0.85);
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .footerInner {
+    grid-template-columns: 1fr;
+  }
+
+  .footerInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .footerSocial {
+    justify-self: start;
+    margin-top: 20px;
+  }
 }

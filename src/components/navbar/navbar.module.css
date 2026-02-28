@@ -1,4 +1,4 @@
-@import "../vars.css";
+/* @import "../vars.css";
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 
 .navbar{
@@ -28,6 +28,7 @@
   align-items: center;
   margin-left: 10px;
   margin-right: auto;
+  transition: color 0.3s ease;
 }
 
 .title:hover {
@@ -36,9 +37,9 @@
 
 .menu {
   display: flex;
-  align-items: center; /* Vertically align all items */
-  justify-content: flex-end; /* Align items to the right */
-  gap: 20px; /* Add spacing between items */
+  align-items: center;  Vertically align all items 
+  justify-content: flex-end;  Align items to the right 
+  gap: 20px;  Add spacing between items 
   margin-right: 20px;
 }
 
@@ -50,9 +51,9 @@
   font-size: 15px;
   font-style: italic;
   color: rgb(199, 123, 9);
-  align-items: center; /* Ensure vertical alignment */
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
+  align-items: center;  Ensure vertical alignment 
+  margin: 0;  Remove any default margin 
+  padding: 0;  Remove any default padding 
 }
 
 .menuItems a {
@@ -72,9 +73,25 @@
   height: 50px;
   position: absolute;
   right: 0;
+  color: rgb(199, 123, 9);
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width:1080px) {
+  .menu {
+    gap: 10px;
+    margin-right: 10px;
+  }
+
+  .menuBtn {
+    display: none;
+  }
+  .menuItems {
+    font-size: 10px;
+    gap: 8px;
+  }
+}
+
+@media screen and (max-width: 900px) {
 
 .title {
   margin-left: 10px;
@@ -101,6 +118,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    padding-top: 10px;
+    padding-right: 20px;
   }
 
   .menuItems {
@@ -121,8 +140,193 @@
   }
 }
 
-@media screen and (min-width: 831px) {
+@media screen and (max-width: 430px) {
+  .title {
+    font-size: 1.3rem;
+  }
+
   .menuBtn {
-      display: none;
+    padding-top: 10px;
+    padding-right: 20px;
+  }
+}
+
+*/
+
+/* navbar.module.css */
+/* Remove vars.css import if your tokens are already in index.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
+.navbar {
+  width: 100%;
+  background: var(--primary);
+  color: var(--background);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Centered container to match Menu/Footer max-width */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Brand block */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--background);
+  min-width: 0; /* allows title truncation on small screens */
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.title {
+  font-family: "Limelight", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Desktop menu */
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menuItems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Link + button base */
+.menuItems a,
+.logoutBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 12px;
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1;
+
+  color: var(--background);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+/* Primary CTA (Book Now) */
+.menuItems li:first-child a {
+  background: rgba(197, 139, 66, 0.95);
+  border-color: rgba(197, 139, 66, 0.95);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.menuItems a:hover,
+.logoutBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(197, 139, 66, 0.18);
+  border-color: rgba(197, 139, 66, 0.35);
+}
+
+/* Logout should look like a nav item */
+.logoutBtn {
+  cursor: pointer;
+}
+
+/* Hamburger button */
+.menuBtn {
+  display: none; /* desktop hidden */
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--background);
+
+  cursor: pointer;
+  flex: 0 0 auto;
+
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.menuBtn:hover {
+  background: rgba(197, 139, 66, 0.18);
+  border-color: rgba(197, 139, 66, 0.35);
+}
+
+/* -----------------------------
+   Mobile
+------------------------------ */
+@media (max-width: 900px) {
+  .menuBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu {
+    position: relative;
+  }
+
+  .menuItems {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+
+    width: min(320px, calc(100vw - 48px));
+    padding: 14px;
+
+    background: var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    z-index: 20;
+  }
+
+  .menuOpen {
+    display: flex;
+  }
+
+  .menuItems a,
+  .logoutBtn {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .title {
+    font-size: 1.2rem;
   }
 }

@@ -71,7 +71,7 @@ export default function Reservation() {
     const handleChange = (e) => {
             };
     return (
-    <div>
+    <div className={styles.pageContainer}>
         <h2>Reservation</h2>
         <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './src/components/home/Home'
 import Menu from './src/components/menu/Menu' // Changed from About to Menu
@@ -15,14 +14,13 @@ import Giftcard from './src/components/giftcard/Giftcard' // Changed from Projec
 const MainRouter = () => {
   return (
     <Routes>
-      {/* Remove exact - not needed in React Router v6 */}
       <Route path="/" element={<Home />} />
-      <Route path="/menu" element={<Menu />} /> {/* Changed from /about to /menu */}
-      <Route path="/giftcard" element={<Giftcard />} /> {/* Changed from /projects */}
+      <Route path="/menu" element={<Menu />} />
+      <Route path="/giftcard" element={<Giftcard />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/bookings" element={<Bookings />} /> {/* Lowercase 's' in path */}
-      <Route path="/signup" element={<SignUp />} /> {/* Lowercase */}
-      <Route path="/login" element={<LogIn />} /> {/* Lowercase */}
+      <Route path="/bookings" element={<Bookings />} /> 
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<LogIn />} />
       <Route path="/reservation" element={<Reservation />} />
 
       {/* Private Routes */}

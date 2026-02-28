@@ -1,80 +1,125 @@
-@import "../vars.css";
-@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Passion+One:wght@400;700;900&display=swap');
+/* home.module.css */
+/* Remove vars import if your tokens are already in index.css */
 
-/* Container for the background */
-.backgroundContainer {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+@import url("https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap");
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 72px); /* subtract navbar height if needed */
+  display: flex;
+  align-items: center;
+
+  background: url("../../assets/bg/cafepictureA.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-/* Static blurry background */
-.backgroundContainer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../../assets/bg/cafepictureA.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px); /* Apply blur effect */
-    z-index: -1; /* Place behind the content */
+/* cleaner than ::before for stacking control */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 29, 23, 0.55); /* uses your primary feel */
 }
 
-/* Opaque text box */
-.textBox {
-    background-color: rgba(255, 255, 255, 0.8); /* White with opacity */
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 800px;
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+
+  display: flex;
+  justify-content: center;
 }
 
-.textBox h1 {
-    font-family: "Passion One", sans-serif;
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #333;
+.card {
+  width: min(760px, 100%);
+  background: rgba(255, 255, 255, 0.88); /* readable on photo */
+  border-radius: 18px;
+  padding: 22px 22px;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+
+  text-align: center;
+  backdrop-filter: blur(4px);
 }
 
-.textBox h2 {
-    font-size: 4rem;
-    font-family: "Passion One", sans-serif;
-    font-style: italic;
-    margin-bottom: 15px;
-    color: #333;
+.h1 {
+  margin: 0 0 6px 0;
+  font-family: "Passion One", sans-serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: var(--primary);
+  letter-spacing: 0.2px;
 }
 
-.textBox p {
-    font-family: "Passion One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
+.h2 {
+  margin: 0 0 12px 0;
+  font-family: "Passion One", sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-style: italic;
+  color: var(--primary);
+  opacity: 0.92;
 }
 
-.signUpButton {
-    margin-top: 0px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-family: "Passion One", sans-serif;
-    font-weight: 100;
-    color: #fff;
-    background-color: #ff7f50; /* Coral color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.p {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--primary-text);
 }
 
-.signUpButton:hover {
-    background-color: #ff4500; /* Darker coral on hover */
+.pMuted {
+  margin: 10px 0 0 0;
+  color: var(--muted-text);
+  font-size: 1rem;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 750;
+  cursor: pointer;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.primaryBtn {
+  background: var(--accent);
+  color: var(--primary);
+  border-color: rgba(197, 139, 66, 0.95);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--primary);
+  border-color: rgba(43, 29, 23, 0.18);
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(197, 139, 66, 0.14);
+  border-color: rgba(197, 139, 66, 0.35);
+}
+
+@media (max-width: 560px) {
+  .card {
+    padding: 18px 16px;
+  }
 }

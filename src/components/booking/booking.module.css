@@ -42,15 +42,17 @@ label {
     margin-bottom: 0.5rem;
     color: #5c3d2e;
     font-weight: 500;
+    padding-left: 10px;
 }
 
 .inputField {
-    width: 100%;
+    width: 80%;
     padding: 0.8rem;
     border: 2px solid #e0d1c3;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 1rem;
     transition: all 0.3s ease;
+    padding-left: 20px;
 }
 
 .inputField:focus {
@@ -60,9 +62,9 @@ label {
 }
 
 .checkboxGroup {
+    padding: 40px 0 0 0;
     display: flex;
     align-items: flex-end;
-    margin-bottom: 1rem;
 }
 
 .checkboxLabel {
@@ -119,7 +121,7 @@ label {
     background: #8b5e3c;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;

@@ -1,0 +1,6 @@
+.pageContainer {
+  width: 1200px;
+  background: var(--background);
+  color: var(--primary-text);
+  padding: 32px 0;
+}

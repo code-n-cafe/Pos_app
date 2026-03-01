@@ -38,18 +38,18 @@ export const Navbar = () => {
 
                 <div className={styles.menu}>
                     <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}>
-                        <li><a href="/bookings">Book Now!</a></li>
-                        <li><a href="/menu">Our Menus</a></li>
-                        <li><a href="/giftcard">Gift Cards</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/#/bookings">Book Now!</a></li>
+                        <li><a href="/#/menu">Our Menus</a></li>
+                        <li><a href="/#/giftcard">Gift Cards</a></li>
+                        <li><a href="/#/contact">Contact Us</a></li>
 
                         {isAuthenticated ? (
                             <>
-                                <a href="/profile">Profile</a>
+                                <a href="/#/profile">Profile</a>
                                 <button onClick={handleLogout}>Logout</button>
                             </>
                         ) : (
-                            <a href="/login">Member Login</a>
+                            <a href="/#/login">Member Login</a>
                         )}
 
                     </ul>

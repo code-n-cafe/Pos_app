@@ -6,7 +6,7 @@ export default defineConfig({
         include: ['react/jsx-runtime']
       },
     plugins: [react()],
-    base: '/', // Explicit base path
+    base: process.env.NODE_ENV === "production" ? "/Pos_app/" : "/", // Explicit base path
     build: {
       outDir: 'dist',
       assetsDir: 'assets',

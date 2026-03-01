@@ -133,7 +133,7 @@ export default function SignUp() {
           <button className={styles.primaryBtn} type="submit">Create account</button>
 
           <p className={styles.smallText}>
-            Already have an account? <a href="/login">Sign in</a>
+            Already have an account? <a href="/#/login">Sign in</a>
           </p>
         </form>
       </div>

@@ -1,4 +1,3 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar  from '../navbar/navbar';
 import Footer from '../footer/FFooter';
 import MainRouter from '../../../MainRouter';
@@ -9,11 +8,9 @@ const App = () => {
  return (
     <div className="app-container">
         <AuthProvider>
-            <Router>
-                <Navbar/>
-                <MainRouter/>
-                <Footer/>
-            </Router>
+            <Navbar/>
+            <MainRouter/>
+            <Footer/>
         </AuthProvider>
     </div>
  );

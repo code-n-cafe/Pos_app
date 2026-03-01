@@ -13,6 +13,6 @@ bookingRouter.route('/api/booking/:bookingId')
     .put(bookingController.updateTicket)
     .delete(bookingController.removeTicket)
 
-bookingRouter.param('bookingId', bookingController.ticketByID)
+bookingRouter.post("/lookup", bookingController.ticketByEmailOrPhone);
 
 export default bookingRouter

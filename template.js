@@ -6,7 +6,7 @@ export default () => {
     <title>MERN Skeleton</title> 
     </head>
     <body>
-    <div id="root">{"message":"Welcome to DressStopre application."}</div> 
+    <div id="root">{"message":"Welcome to Code'n'Cafe Web App."}</div> 
     </body>
     </html>` 
     }

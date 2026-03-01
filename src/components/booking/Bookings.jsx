@@ -194,7 +194,7 @@ export default function Bookings() {
                     
                     <p className={styles.footerText}>
                         Already have a reservation? 
-                        <a href="/Reservation" className={styles.link}>Check your booking here</a>
+                        <a href="/#/Reservation" className={styles.link}>Check your booking here</a>
                     </p>
                 </form>
             </div>

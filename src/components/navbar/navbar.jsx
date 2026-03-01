@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import logo from "../../assets/navbar/C&CLOGO.png";
 import styles from './navbar.module.css';
@@ -7,6 +8,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 
 export const Navbar = () => {
+    const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
     const { isAuthenticated, logout } = useAuth();
 
@@ -19,7 +21,7 @@ export const Navbar = () => {
     return ( 
         <nav className={styles.navbar}>
             <div className={styles.inner}>
-                <a className={styles.brand} href="/">
+                <a className={styles.brand} onClick={() => navigate("/")}>
                 <img src={logo} alt="COC logo" className={styles.logo}/> 
                 <span>CODES AND COFFEE CAFE</span>
                 </a>
@@ -38,18 +40,18 @@ export const Navbar = () => {
 
                 <div className={styles.menu}>
                     <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}>
-                        <li><a href="/#/bookings">Book Now!</a></li>
-                        <li><a href="/#/menu">Our Menus</a></li>
-                        <li><a href="/#/giftcard">Gift Cards</a></li>
-                        <li><a href="/#/contact">Contact Us</a></li>
+                        <li><a onClick={() => navigate("/bookings")}>Book Now!</a></li>
+                        <li><a onClick={() => navigate("/menu")}>Our Menus</a></li>
+                        <li><a onClick={() => navigate("/giftcard")}>Gift Cards</a></li>
+                        <li><a onClick={() => navigate("/contact")}>Contact Us</a></li>
 
                         {isAuthenticated ? (
                             <>
-                                <a href="/#/profile">Profile</a>
+                                <a onClick={() => navigate("/profile")}>Profile</a>
                                 <button onClick={handleLogout}>Logout</button>
                             </>
                         ) : (
-                            <a href="/#/login">Member Login</a>
+                            <a onClick={() => navigate("/login")}>Member Login</a>
                         )}
 
                     </ul>

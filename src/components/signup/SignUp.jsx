@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styles from "./SignUp.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const nav = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -70,6 +72,7 @@ export default function SignUp() {
         password: "",
         confirmPassword: "",
       });
+      nav("/login");
     } catch (err) {
       console.error(err);
       setStatus({ type: "error", message: "Network error. Please try again." });
@@ -133,7 +136,7 @@ export default function SignUp() {
           <button className={styles.primaryBtn} type="submit">Create account</button>
 
           <p className={styles.smallText}>
-            Already have an account? <a href="/#/login">Sign in</a>
+            Already have an account? <a onClick={() => nav("/login")}>Sign in</a>
           </p>
         </form>
       </div>

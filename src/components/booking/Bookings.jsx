@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./booking.module.css";
 
 export default function Bookings() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         check_in: "",
@@ -194,7 +196,7 @@ export default function Bookings() {
                     
                     <p className={styles.footerText}>
                         Already have a reservation? 
-                        <a href="/#/Reservation" className={styles.link}>Check your booking here</a>
+                        <a onClick={() => navigate("/Reservation")} className={styles.link}>Check your booking here</a>
                     </p>
                 </form>
             </div>
